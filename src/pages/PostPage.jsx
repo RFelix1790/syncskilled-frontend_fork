@@ -18,18 +18,18 @@ export default function PostPage() {
     <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
       <h1>All Posts</h1>
       <button
-        onClick={() => navigate("/posts/create")}
-        style={{
-          padding: "10px 20px",
-          cursor: "pointer",
-          backgroundColor: "#28a745",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-        }}
-      >
-        Create a New Post
-      </button>
+          onClick={() => navigate("/posts/create")}
+          style={{
+            padding: "10px 20px",
+            cursor: "pointer",
+            backgroundColor: "#28a745",
+            color: "white",
+            border: "none",
+            borderRadius: "5px",
+          }}
+        >
+          Create a New Post
+        </button>
 
       <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
         {posts.map((post) => (
