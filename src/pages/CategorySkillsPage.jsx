@@ -37,7 +37,9 @@ export default function CategorySkillsPage() {
       try {
         const all = await Catalog.categories({ active: true, limit: 100 });
         const list = all.items || all || [];
-        const found = list.find((c) => c.slug === idOrSlug || c._id === idOrSlug);
+        const found = list.find(
+          (c) => c.slug === idOrSlug || c._id === idOrSlug
+        );
         if (found) setCategory(found);
       } catch (error) {
         console.error("Failed to load category.", error);
@@ -117,12 +119,16 @@ export default function CategorySkillsPage() {
       <div className="card">
         <div className="card-header">
           <h3 className="card-title">{category?.name || "Skills"}</h3>
-          <Link to="/catalog" className="btn-ghost">← Back</Link>
+          <Link to="/catalog" className="btn-ghost">
+            ← Back
+          </Link>
         </div>
 
         <div className="card-content grid gap-4">
           <div className="field-row">
-            <label htmlFor="q" className="label">Search skills</label>
+            <label htmlFor="q" className="label">
+              Search skills
+            </label>
             <div className="flex items-center gap-2">
               <input
                 id="q" name="q" type="text" className="input"
@@ -144,10 +150,16 @@ export default function CategorySkillsPage() {
                 return (
                   <li key={key} className="row">
                     <div className="row-left">
-                      <div className="avatar">{(s.name || "?").slice(0, 2).toUpperCase()}</div>
+                      <div className="avatar">
+                        {(s.name || "?").slice(0, 2).toUpperCase()}
+                      </div>
                       <div>
-                        <div className="text-sm font-medium text-gray-900">{s.name}</div>
-                        {s.description && <div className="subtle">{s.description}</div>}
+                        <div className="text-sm font-medium text-gray-900">
+                          {s.name}
+                        </div>
+                        {s.description && (
+                          <div className="subtle">{s.description}</div>
+                        )}
                       </div>
                     </div>
 

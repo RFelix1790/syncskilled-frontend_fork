@@ -9,6 +9,9 @@ import RegisterPage from "./pages/RegisterPage";
 import MePage from "./pages/MePage";
 import CategoriesPage from "./pages/CategoriesPage";
 import CategorySkillsPage from "./pages/CategorySkillsPage";
+import PostPage from "./pages/PostPage";
+import PostDetails from "./pages/PostDetails";
+import CreatePost from "./pages/CreatePost";
 
 export default function App() {
   const { user, logout } = useAuth();
@@ -28,6 +31,15 @@ export default function App() {
                 }
               >
                 Home
+              </NavLink>
+              <NavLink
+                to="posts"
+                className={({ isActive }) =>
+                  isActive ? "nav-link nav-link-active" : "nav-link"
+                }
+              >
+                {" "}
+                Posts
               </NavLink>
 
               {user && (
@@ -85,6 +97,8 @@ export default function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/posts" element={<PostPage />} />
+          <Route path="/posts/:postId" element={<PostDetails />} />
 
           {/* Protected pages */}
           <Route
@@ -108,6 +122,14 @@ export default function App() {
             element={
               <ProtectedRoute>
                 <CategorySkillsPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/posts/create"
+            element={
+              <ProtectedRoute>
+                <CreatePost />
               </ProtectedRoute>
             }
           />

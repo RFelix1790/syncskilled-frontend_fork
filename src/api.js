@@ -155,7 +155,7 @@ export const Catalog = {
 /* Optional: posts/comments only if your backend supports them */
 export const Post = {
   async createPost(data)      { return post("/posts", data); },
-  async getAllPost()          { return get("/posts"); },
+  async getAllPosts()          { return get("/posts"); },
   async singlePost(id)        { return get(`/posts/${id}`); },
   async authorOfThePost(id)   { return get(`/posts/author/${id}`); },
   async updatePost(id, data)  { return put(`/posts/${id}`, data); },
